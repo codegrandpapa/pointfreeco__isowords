@@ -1,0 +1,16 @@
+import CustomDump
+import SharedModels
+import XCTest
+
+class ThreeTests: XCTestCase {
+  func testCodability() throws {
+    let jsonString = """
+      [[[{"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}, {"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}, {"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}], [{"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}, {"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}, {"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}], [{"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}, {"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}, {"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}]], [[{"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}, {"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}, {"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}], [{"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}, {"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}, {"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}], [{"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}, {"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}, {"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}]], [[{"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}, {"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}, {"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}], [{"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}, {"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}, {"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}], [{"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}, {"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}, {"top": {"side": 0, "letter": "C"}, "left": {"side": 1, "letter": "A"}, "right": {"side": 2, "letter": "B"}}]]]
+      """
+
+    expectNoDifference(
+      try JSONDecoder().decode(ArchivablePuzzle.self, from: Data(jsonString.utf8)),
+      .mock
+    )
+  }
+}
